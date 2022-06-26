@@ -1,0 +1,12 @@
+/* Add application styles & imports to this file! */
+body {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  width: 480px;
+  border: 10px;
+  border-color: darkgray;
+  display: flex;
+}

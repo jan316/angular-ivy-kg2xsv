@@ -1,0 +1,54 @@
+<div class="field">
+  <div>
+    <h3>Víš kdo jsem? Zkus hádat!</h3>
+  </div>
+  <div *ngIf="actors">
+    <figure class="image is-1by1">
+      <img
+        class="cover"
+        [src]="actors[correctIndex].photo"
+        alt="image of an actor"
+      />
+    </figure>
+    <div class="tile is-child notification is-warning">
+      <p *ngIf="count > 0" class="title is-4">{{ score }}</p>
+
+      <!-- [ngClass]="getCorrectWrongClasses(optionIndex)" -->
+
+      <ul class="menu-list">
+        <li *ngFor="let optionIndex of options">
+          <a
+            class="button is-block is-fullwidth is-link is-medium is-rounded"
+            [class.correct]="optionIndex === correctIndex && selectedIndex"
+            [class.wrong]="
+              optionIndex !== correctIndex && optionIndex === selectedIndex
+            "
+            (click)="onOptionSelected(optionIndex)"
+          >
+            {{ actors[optionIndex].name }}
+          </a>
+        </li>
+      </ul>
+
+      {{ selectedIndex }}, {{ correctIndex }}, {{ options }}
+
+      <div class="menu-list">
+        <!-- <a
+          *ngIf="count < 10"
+          (click)="onGoClick()"
+          class="button is-block is-fullwidth is-primary is-medium is-rounded"
+        >
+          Go!
+        </a> -->
+
+        <button
+          *ngIf="count === 10"
+          (click)="onGoClick()"
+          class="button is-block is-fullwidth is-primary is-medium is-rounded"
+        >
+          Restart!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

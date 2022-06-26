@@ -1,0 +1,20 @@
+.cover {
+  object-fit: cover;
+}
+
+.button {
+  flex-flow: column;
+  margin: 5px;
+}
+
+h3 {
+  margin: 5px;
+}
+
+.correct {
+  background-color: green !important;
+}
+
+.wrong {
+  background-color: red !important;
+}
